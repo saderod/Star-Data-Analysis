@@ -1,0 +1,201 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+star_data = pd.read_csv("6 class csv.csv")
+star_data
+
+A = star_data[star_data["Spectral Class"] == 'A']
+B = star_data[star_data["Spectral Class"] == 'B']
+F = star_data[star_data["Spectral Class"] ==  'F']
+G = star_data[star_data["Spectral Class"] ==  'G']
+K = star_data[star_data["Spectral Class"] ==  'K']
+M = star_data[star_data["Spectral Class"] ==  'M']
+O = star_data[star_data["Spectral Class"] ==  'O']
+
+red_data = star_data[star_data["Star color"] == "Red"]
+blue_data = star_data[star_data["Star color"] == "Blue"]
+orange_data = star_data[star_data["Star color"] == "Orange"]
+white_data = star_data[star_data["Star color"] == "White"]
+yellow_data = star_data[star_data["Star color"] == "Yellow"]
+
+zero = star_data[star_data["Star type"] == 0]
+one = star_data[star_data["Star type"] == 1]
+two = star_data[star_data["Star type"] == 2]
+three = star_data[star_data["Star type"] == 3]
+four = star_data[star_data["Star type"] == 4]
+five = star_data[star_data["Star type"] == 5]
+
+TxM = plt.scatter(star_data["Temperature (K)"], star_data["Absolute magnitude(Mv)"])
+plt.xlabel("Temperature (K)")
+plt.ylabel("Magnitude (Mv)")
+plt.title("Temp Vs Mag")
+plt.savefig("Temp Vs Mag")
+
+RxM = plt.scatter(star_data["Radius(R/Ro)"], star_data["Absolute magnitude(Mv)"])
+plt.xlabel("Radius(R/Ro))")
+plt.ylabel("Magnitude (Mv)")
+plt.title("Rad Vs Mag")
+plt.savefig("Rad Vs Mag")
+
+red_TxL = plt.scatter(red_data["Temperature (K)"], red_data["Luminosity(L/Lo)"])
+plt.xlabel("Temperature (K))")
+plt.ylabel("Luminosity(L/Lo)")
+plt.title("Red Stars Temp Vs Lum")
+plt.savefig("Red Stars Temp Vs Lum")
+
+red_TxR = plt.scatter(red_data["Temperature (K)"], red_data["Radius(R/Ro)"])
+plt.xlabel("Temperature (K))")
+plt.ylabel("Radius(R/Ro)")
+plt.title("Red Stars Temp Vs Rad")
+plt.savefig("Red Stars Temp Vs Rad")
+
+red_TxM = plt.scatter(red_data["Temperature (K)"], red_data["Absolute magnitude(Mv)"])
+plt.xlabel("Temperature (K))")
+plt.ylabel("Magnitude (Mv)")
+plt.title("Red Stars Temp Vs Mag")
+plt.savefig("Red Stars Temp Vs Mag")
+
+blue_TxM = plt.scatter(blue_data["Temperature (K)"], blue_data["Absolute magnitude(Mv)"])
+plt.xlabel("Temperature (K))")
+plt.ylabel("Magnitude (Mv)")
+plt.title("Blue Stars Temp Vs Mag")
+plt.savefig("Blue Stars Temp Vs Mag")
+
+blue_RxM = plt.scatter(blue_data["Radius(R/Ro)"], blue_data["Absolute magnitude(Mv)"])
+plt.xlabel("Radius(R/Ro)")
+plt.ylabel("Magnitude (Mv)")
+plt.title("Blue Stars Rad Vs Mag")
+plt.savefig("Blue Stars Rad Vs Mag")
+
+white_TxL = plt.scatter(white_data["Temperature (K)"], white_data["Luminosity(L/Lo)"])
+plt.xlabel("Temperature (K)")
+plt.ylabel("Luminosity(L/Lo)")
+plt.title("White Stars Temp Vs Lum")
+plt.savefig("White Stars Temp Vs Lum")
+# so little of white star data
+
+orange_TxL = plt.scatter(orange_data["Temperature (K)"], orange_data["Luminosity(L/Lo)"])
+plt.xlabel("Temperature (K)")
+plt.ylabel("Luminosity(L/Lo)")
+plt.title("Orange Stars Temp Vs Lum")
+plt.savefig("Orange Stars Temp Vs Lum")
+# very little orange star data
+
+yellow_TxL = plt.scatter(yellow_data["Temperature (K)"], yellow_data["Luminosity(L/Lo)"])
+plt.xlabel("Temperature (K)")
+plt.ylabel("Luminosity(L/Lo)")
+plt.title("Yellow Stars Temp Vs Lum")
+plt.savefig("Yellow Stars Temp Vs Lum")
+
+colors = ["Red", "Blue", "White", "Yellow", "Orange"]
+data = [112, 55, 7, 4, 2]
+pie_chart = plt.pie(data, labels=colors)
+plt.title("Star Colors in the Data Set")
+plt.savefig("Star Colors in the Data Set")
+
+data2 = [40, 40, 40, 40, 40, 40]
+star_type = [0, 1, 2, 3, 4, 5]
+pie_chart_two = plt.pie(data2, labels = star_type)
+plt.title("Star Types in the Data Set")
+plt.savefig("Star Types in the Data Set")
+
+data3 = [19, 46, 17, 1, 6, 111, 40]
+classes = ["A", "B", "F", "G", "K", "M", "O"]
+pie_chart_three = plt.pie(data3, labels=classes)
+plt.title("Star Spectral Class in the Data Set")
+plt.savefig("Star Spectral Class in the Data Set")
+
+# almost all red stars are M class, row 118 and 120 are the exceptions where it is K or G class; both of the exceptions temperatures are above 3900
+# and their lum is in the 200,000-300,000 range
+
+# blue stars are either an O or B class
+
+# orange stars are either a K M or F class
+
+# white stars are either A, B or F class
+
+# yellow stars are either K or F class
+
+zero_TxL = plt.scatter(zero["Temperature (K)"], zero["Luminosity(L/Lo)"])
+plt.xlabel("Temperature (K)")
+plt.ylabel("Luminosity(L/Lo)")
+plt.title("Type Zero Stars Temp Vs Lum")
+plt.savefig("Type Zero Stars Temp Vs Lum")
+
+zero_TxR = plt.scatter(zero["Temperature (K)"], zero["Radius(R/Ro)"])
+plt.xlabel("Temperature (K)")
+plt.ylabel("Radius(R/Ro)")
+plt.title("Type Zero Stars Lum Vs Rad")
+plt.savefig("Type Zero Stars Lum Vs Rad")
+
+zero_LxR = plt.scatter(zero["Luminosity(L/Lo)"], zero["Radius(R/Ro)"])
+plt.xlabel("Luminosity(L/Lo)")
+plt.ylabel("Radius(R/Ro)")
+plt.title("Type Zero Stars Lum Vs Rad")
+plt.savefig("Type Zero Stars Lum Vs Rad")
+
+zero_LxM = plt.scatter(zero["Luminosity(L/Lo)"], zero["Absolute magnitude(Mv)"])
+plt.xlabel("Luminosity(L/Lo)")
+plt.ylabel("Magnitude (Mv)")
+plt.title("Type Zero Stars Lum Vs Mag")
+plt.savefig("Type Zero Stars Lum Vs Mag")
+
+one_TxR = plt.scatter(one["Temperature (K)"], one["Radius(R/Ro)"])
+plt.xlabel("Temperature (K)")
+plt.ylabel("Radius(R/Ro)")
+plt.title("Type One Stars Temp Vs Rad")
+plt.savefig("Type One Stars Temp Vs Rad")
+
+one_LxR = plt.scatter(one["Luminosity(L/Lo)"], one["Radius(R/Ro)"])
+
+two_TxL = plt.scatter(two["Temperature (K)"], two["Luminosity(L/Lo)"])
+
+two_TxM = plt.scatter(two["Temperature (K)"], two["Absolute magnitude(Mv)"])
+plt.xlabel("Temperature (K)")
+plt.ylabel("Absolute magnitude(Mv)")
+plt.title("Type Two Stars Temp Vs Mag")
+plt.savefig("Type Two Stars Temp Vs Mag")
+
+two_LxR = plt.scatter(two["Luminosity(L/Lo)"], two["Radius(R/Ro)"])
+
+three_TxL = plt.scatter(three["Temperature (K)"], three["Luminosity(L/Lo)"])
+
+three_TxM = plt.scatter(three["Temperature (K)"], three["Absolute magnitude(Mv)"])
+plt.xlabel("Temperature (K)")
+plt.ylabel("Absolute magnitude(Mv)")
+plt.title("Type Three Stars Temp Vs Mag")
+plt.savefig("Type Three Stars Temp Vs Mag")
+
+three_LxR = plt.scatter(three["Luminosity(L/Lo)"], three["Radius(R/Ro)"])
+
+three_LxM = plt.scatter(three["Luminosity(L/Lo)"], three["Absolute magnitude(Mv)"])
+
+three_RxM = plt.scatter(three["Radius(R/Ro)"], three["Absolute magnitude(Mv)"])
+plt.xlabel("Radius (R/Ro)")
+plt.ylabel("Absolute magnitude(Mv)")
+plt.title("Type Three Stars Rad Vs Mag")
+plt.savefig("Type Three Stars Rad Vs Mag")
+
+A_TxL = plt.scatter(A["Temperature (K)"], A["Luminosity(L/Lo)"])
+
+M_TxL = plt.scatter(M["Temperature (K)"], M["Luminosity(L/Lo)"])
+
+M_TxR = plt.scatter(M["Temperature (K)"], M["Radius(R/Ro)"])
+
+M_TxM = plt.scatter(M["Temperature (K)"], M["Absolute magnitude(Mv)"])
+
+# class B stars tend to have mags ranging from 10-12, few excepts were where the mag was less than that was when the lum was high
+# class B stars tend to have ver low lum
+# class O stars tend to have big lums but mags in the negative range up to -11 to -4 range
+
+# white A stars only have the attribute of temp above 7000
+# white B stars only have the attribute of temp above 9000
+# white F stars only have the attribute of low radius range from 0-2
+
+# blue O stars have mags from -4 to -10
+
+plt.boxplot(red_data["Temperature (K)"])
+
+plt.boxplot(blue_data["Temperature (K)"])
+
+plt.boxplot(white_data["Temperature (K)"])
